@@ -35,6 +35,8 @@ node_modules
 ### Bower ###
 public/components
 
+### Production ###
+public/production
 
 ### PhPStorm ###
 .idea/
