@@ -33,7 +33,7 @@ node_modules
 public/components
 
 ### Compiled css ###
-public/stylesheets/application.css
+public/stylesheets/css
 .sass-cache
 
 ### PhPStorm ###
