@@ -44,6 +44,10 @@ module.exports = function(grunt) {
 
     // Watch for changes and run tasks
     watch: {
+      options: {
+        livereload: true,
+      },
+
       scripts: {
         files: ['public/javascripts/*.js'],
         tasks: ['concat', 'uglify'],
