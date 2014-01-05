@@ -11,7 +11,6 @@ Icon
 .Spotlight-V100
 .Trashes
 
-
 ### Node ###
 lib-cov
 *.seed
@@ -32,9 +31,6 @@ node_modules
 
 ### Bower ###
 public/components
-
-### Production ###
-public/production
 
 ### Compiled css ###
 public/stylesheets/application.css

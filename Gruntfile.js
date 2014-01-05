@@ -6,15 +6,15 @@ module.exports = function(grunt) {
     concat: {
       dist: {
         src: ['public/javascripts/*.js'],
-        dest: 'public/production/application.js'
+        dest: 'public/javascripts/application.js'
       }
     },
 
     // Minify files
     uglify: {
       build: {
-        src: 'public/production/application.js',
-        dest: 'public/production/application.min.js'
+        src: 'public/javascripts/application.js',
+        dest: 'public/javascripts/application.min.js'
       }
     },
 
@@ -73,4 +73,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('default', ['concat', 'uglify', 'imagemin', 'sass']);
+  grunt.registerTask('dev', ['watch']);
 };
+
+
+
+
+
+
+
+
+
