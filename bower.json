@@ -1,0 +1,13 @@
+{
+  "name": "themeritshop",
+  "version": "0.0.1",
+  "private": true,
+  "ignore": [
+    ".jshintrc",
+    "**/*.txt"
+  ],
+  "dependencies": {
+    "modernizr": "*",
+    "normalize-css": "*"
+  }
+}
