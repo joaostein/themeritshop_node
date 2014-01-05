@@ -30,14 +30,24 @@ module.exports = function(grunt) {
       }
     },
 
-    // Sass
-    sass: {
+    // // Sass
+    // sass: {
+    //   dist: {
+    //     options: {
+    //       style: 'compressed'
+    //     },
+    //     files: {
+    //       'public/stylesheets/application.css': 'public/stylesheets/application.sass'
+    //     }
+    //   }
+    // },
+
+    // Compass
+    compass: {
       dist: {
         options: {
-          style: 'compressed'
-        },
-        files: {
-          'public/stylesheets/application.css': 'public/stylesheets/application.sass'
+          sassDir: 'public/stylesheets/sass',
+          cssDir: 'public/stylesheets/css'
         }
       }
     },
@@ -57,8 +67,8 @@ module.exports = function(grunt) {
       },
 
       css: {
-        files: ['public/stylesheets/*.sass'],
-        tasks: ['sass'],
+        files: ['public/stylesheets/sass/*.sass'],
+        tasks: ['compass'],
         options: {
           spawn: false,
         }
@@ -69,10 +79,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
-  grunt.loadNpmTasks('grunt-contrib-sass');
+  // grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ['concat', 'uglify', 'imagemin', 'sass']);
+  grunt.registerTask('default', ['concat', 'uglify', 'imagemin']);
   grunt.registerTask('dev', ['watch']);
 };
 
