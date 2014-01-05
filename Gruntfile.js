@@ -16,11 +16,24 @@ module.exports = function(grunt) {
         src: 'public/production/application.js',
         dest: 'public/production/application.min.js'
       }
+    },
+
+    // Optimize images
+    imagemin: {
+      dynamic: {
+        files: [{
+          expand: true,
+          cwd: 'public/',
+          src: ['images/*.{png,jpg,gif}'],
+          dest: 'public/'
+        }]
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
 
-  grunt.registerTask('default', ['concat', 'uglify']);
+  grunt.registerTask('default', ['concat', 'uglify', 'imagemin']);
 };
