@@ -28,12 +28,24 @@ module.exports = function(grunt) {
           dest: 'public/'
         }]
       }
+    },
+
+    // Watch for changes and run tasks
+    watch: {
+      scripts: {
+        files: ['public/javascripts/*.js'],
+        tasks: ['concat', 'uglify'],
+        options: {
+          spawn: false,
+        }
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('default', ['concat', 'uglify', 'imagemin']);
 };
