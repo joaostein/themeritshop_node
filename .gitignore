@@ -1,5 +1,6 @@
 ### Bower ###
 public/components
+public/vendor
 
 ### Compiled css ###
 public/stylesheets/css
