@@ -1,8 +1,29 @@
-@import "../../vendor/normalize-css/normalize.css"
-@import "susy"
+//-----------------------------------------------------------------------
+//  Imports
+//-----------------------------------------------------------------------
 
-.browsehappy
-  margin: 0.2em 0
-  background: #ccc
-  color: #000
-  padding: 0.2em 0
+@charset "utf-8"
+@import "compass/utilities/general/clearfix"
+@import "compass/typography/vertical_rhythm"
+@import "compass/css3/box-sizing"
+@import "compass/css3/inline-block"
+
+//--------------- Base ---------------//
+
+@import "base/normalize"
+@import "base/settings"
+@import "base/general"
+@import "base/typography"
+@import "base/buttons"
+
+//--------------- Layout ---------------//
+
+//--------------- Modules ---------------//
+
+//--------------- States ---------------//
+
+@import "base/states"
+
+//--------------- Vendor ---------------//
+
+@import "vendor"
