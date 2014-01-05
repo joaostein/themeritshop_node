@@ -1,10 +1,17 @@
+### Bower ###
+public/components
+
+### Compiled css ###
+public/stylesheets/css
+.sass-cache
+
 ### OSX ###
 .DS_Store
 .AppleDouble
 .LSOverride
 Icon
 
-# Thumbnails
+### Thumbnails ###
 ._*
 
 # Files that might appear on external disk
@@ -28,16 +35,6 @@ results
 ### NPM ###
 npm-debug.log
 node_modules
-
-### Bower ###
-public/components
-
-### Compiled css ###
-public/stylesheets/css
-.sass-cache
-
-### PhPStorm ###
-.idea/
 
 ### Db config ###
 db_config.js
