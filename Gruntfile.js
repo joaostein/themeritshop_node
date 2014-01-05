@@ -30,11 +30,31 @@ module.exports = function(grunt) {
       }
     },
 
+    // Sass
+    sass: {
+      dist: {
+        options: {
+          style: 'compressed'
+        },
+        files: {
+          'public/stylesheets/application.css': 'public/stylesheets/application.sass'
+        }
+      }
+    },
+
     // Watch for changes and run tasks
     watch: {
       scripts: {
         files: ['public/javascripts/*.js'],
         tasks: ['concat', 'uglify'],
+        options: {
+          spawn: false,
+        }
+      },
+
+      css: {
+        files: ['public/stylesheets/*.sass'],
+        tasks: ['sass'],
         options: {
           spawn: false,
         }
@@ -45,7 +65,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
+  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ['concat', 'uglify', 'imagemin']);
+  grunt.registerTask('default', ['concat', 'uglify', 'imagemin', 'sass']);
 };

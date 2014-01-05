@@ -26,17 +26,19 @@ pids
 logs
 results
 
-
 ### NPM ###
 npm-debug.log
 node_modules
-
 
 ### Bower ###
 public/components
 
 ### Production ###
 public/production
+
+### Compiled css ###
+public/stylesheets/application.css
+.sass-cache
 
 ### PhPStorm ###
 .idea/
