@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+  h1 #{user.name}
+  ul
+    li #{user.email}
+    li #{user.address}
+  ul
+    li: a(href="/users") All users
+    li: a(href="#{user.name}/edit") Edit
+    li
+      form(action="/users/#{user.name}", method="POST")
+        input(type="hidden", name="_method", value="DELETE")
+        input(type="submit", value="Delete")

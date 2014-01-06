@@ -1,0 +1,10 @@
+extends ../layout
+
+block content
+  h1 List all users
+
+  ul
+    each user in users
+      li: a(href="users/#{user.name}") #{user.name}
+
+  a(href="/users/new") Create new users

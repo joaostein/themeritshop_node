@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+  h1 Update #{user.name}
+
+  form(method="POST", action="/users/#{user.name}")
+    input(type="hidden", name="_method", value="PUT")
+    label Name:
+      input(type="text", name="name", value="#{user.name}")
+    label Email:
+      input(type="text", name="email", value="#{user.email}")
+    label Address:
+      input(type="text", name="address", value="#{user.address}")
+
+    input(type="submit", value="Update")
