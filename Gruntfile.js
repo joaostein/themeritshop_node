@@ -56,7 +56,7 @@ module.exports = function(grunt) {
       },
 
       css: {
-        files: ['public/stylesheets/sass/*.sass'],
+        files: ['public/stylesheets/sass/**/*.sass'],
         tasks: ['compass'],
         options: {
           spawn: false,
@@ -74,12 +74,3 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['concat', 'uglify', 'imagemin']);
   grunt.registerTask('dev', ['watch']);
 };
-
-
-
-
-
-
-
-
-
