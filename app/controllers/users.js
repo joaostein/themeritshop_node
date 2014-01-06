@@ -1,23 +1,12 @@
-// Mongoose
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/themeritshop');
+var User = mongoose.model('User');
 
-var UserSchema = mongoose.Schema({
-  name: String,
-  email: String,
-  address: String
-});
-
-var User = mongoose.model('User', UserSchema);
-
-// Show
 exports.showAll = function (req, res) {
   User.find({}, function (err, docs) {
     res.render('users/index', { users: docs });
   });
 };
 
-// New
 exports.new = function (req, res) {
   res.render('users/new');
 };
@@ -70,17 +59,3 @@ exports.delete = function (req, res) {
     res.redirect('/users');
   })
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
