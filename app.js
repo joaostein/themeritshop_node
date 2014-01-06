@@ -5,10 +5,9 @@
 
 var express = require('express');
 var routes = require('./routes');
-var user = require('./routes/user');
+var users = require('./routes/users');
 var http = require('http');
 var path = require('path');
-var mongoose = require('mongoose');
 
 var app = express();
 
@@ -23,82 +22,6 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Mongoose
-mongoose.connect('mongodb://localhost/themeritshop');
-
-var UserSchema = mongoose.Schema({
-  name: String,
-  email: String,
-  address: String
-});
-
-var User = mongoose.model('User', UserSchema);
-
-// Show
-app.get('/users', function (req, res) {
-  User.find({}, function (err, docs) {
-    res.render('users/index', { users: docs });
-  });
-});
-
-// New
-app.get('/users/new', function (req, res) {
-  res.render('users/new');
-});
-
-// Create
-app.post('/users', function (req, res) {
-  var body = req.body;
-
-  var user = new User ({
-    name: body.name,
-    email: body.email,
-    address: body.address
-  });
-
-  user.save(function (err, user) {
-    if (err) {
-      res.json(err);
-    }
-    res.redirect('/users/' + user.name);
-  });
-});
-
-app.param('name', function (req, res, next, name) {
-  User.find({ name: name }, function (err, docs) {
-    req.user = docs[0];
-    next();
-  });
-});
-
-// Show
-app.get('/users/:name', function (req, res) {
-  res.render('users/show', { user: req.user });
-});
-
-// Edit
-app.get('/users/:name/edit', function (req, res) {
-  res.render('users/edit', { user: req.user });
-});
-
-// Update
-app.put('/users/:name', function (req, res) {
-  var body = req.body;
-  User.update({ name: req.params.name }, {
-    name: body.name,
-    email: body.email,
-    address: body.address
-  }, function(err) {
-    res.redirect('users/' + body.name);
-  });
-});
-
-// Delete
-app.delete('/users/:name', function (req, res) {
-  User.remove({ name: req.params.name }, function (err) {
-    res.redirect('/users');
-  })
-});
 
 // development only
 if ('development' == app.get('env')) {
@@ -106,7 +29,17 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/users', user.list);
+
+// Users routes
+app.param('name', users.findUser);
+app.get('/users', users.showAll);
+app.get('/users/new', users.new);
+app.post('/users', users.create);
+app.get('/users/:name', users.showUser);
+app.get('/users/:name/edit', users.edit);
+app.put('/users/:name', users.update);
+app.delete('/users/:name', users.delete);
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
