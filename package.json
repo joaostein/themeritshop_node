@@ -15,7 +15,8 @@
     "jade": "*",
     "mongoose": "~3.8.3",
     "lodash": "~2.4.1",
-    "bower": "~1.2.8"
+    "bower": "~1.2.8",
+    "forever": "~0.10.11"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
