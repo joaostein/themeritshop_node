@@ -3,7 +3,6 @@ public/components
 public/vendor
 
 ### Compiled css ###
-public/stylesheets/css
 .sass-cache
 
 ### OSX ###

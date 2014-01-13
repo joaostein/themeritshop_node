@@ -9,7 +9,7 @@ module.exports = function (app) {
 
   // Setting the fav icon and static folder
   app.use(express.favicon());
-  app.use(express.static(process.cwd() + '/public'));
+  app.use(express.static(config.root + '/public'));
 
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
