@@ -3,6 +3,13 @@ var config = require('./config');
 
 module.exports = function (app) {
 
+  app.use(express.compress({
+    filter: function(req, res) {
+      return (/json|text|javascript|css/).test(res.getHeader('Content-Type'));
+    },
+    level: 9
+  }));
+
   // Set views path, template engine and default layout
   app.set('views', config.root + '/app/views');
   app.set('view engine', 'jade');
